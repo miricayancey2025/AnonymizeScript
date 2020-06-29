@@ -42,8 +42,7 @@ import mmap
 import argparse
 import os
 
-
-    # Replace terms
+#Replace Terms
 IPV4 = "XX.XX.XX.XX"
 IPV6 ="XXXX:XXXX:XXXX:XXXX::"
 USER = "USER"
@@ -79,23 +78,23 @@ def findCondorUserIDs(filename): #finds and returns the CN user identifiers
 #regex version of condor remove data
 #Negatives: reads line by line. Bad if the process is stopped halfway through
 def findGlideinUserIDs(filename): #Greedy CN Replacer
-    f_in = open(filename, "r")
     cns = []
+    f_in = open(filename, "r")
     outlines = f_in.readlines()
     f_in.close()
     cn_regex = 'CN.*(")'
-    for line in outlines:
-        #using search instead of find all means there cannot be more than one instance in a line
+    for line in outlines: #using search instead of find all means there cannot be more than one instance in a line
       if re.search(cn_regex, line, flags=re.MULTILINE):
         idx = re.search('CN', line).start()
         end = line.find('"',idx)
         line = line[idx:end]
         cns.append(line)
+        
+    #might become a long process with longer files
     cns = ("".join(cns)).split("CN=")
     cns = ("".join(cns)).split("CN\\=")
     cns = (" ".join(cns)).split(" ")    
     return cns
-  
   
 def cleanCondor(filename,email,userinfo, USER): #removes email 6 user data (name, email) from a file
     f = open(filename,'r')
@@ -143,7 +142,7 @@ def replaceIP(filename):
 ##########################################################################################################
 
 
-def trial():
+def cleanLogs():
     # Parse command line arguments
     parser = argparse.ArgumentParser(description="GlideinMonitor's Filtering")
     parser.add_argument('-i', help="Input Directory", required=True)
@@ -166,18 +165,15 @@ def trial():
         with open(os.path.join(input_directory, file_name), 'r') as input_file_handle:
             input_file_contents = input_file_handle.read()
 
-
-        filetype = ""
-    ####################################################################################
         # Replace the target stand in for actual code finding out if condor
-        if filetype == "condor":
-            ids = findCondorUserIDs(input_file_handle)
-            email = findEmail(input_file_handle)
-            output_file_contents = cleanCondor(input_file_handle, email, ids)
-        else:
+        if os.path.splitext(file_name)[1] == '.out' or os.path.splitext(file_name)[1] == '.err' :
             ids = findGlideinUserIDs(input_file_handle)
             output_file_contents = cleanGlidein(input_file_handle, ids)
             output_file_contents = replaceIP(input_file_handle) #won't work for now
+        else:
+            ids = findCondorUserIDs(input_file_handle)
+            email = findEmail(input_file_handle)
+            output_file_contents = cleanCondor(input_file_handle, email, ids)
 
         # Write the file to the output directory
         with open(os.path.join(output_directory, file_name), 'w') as file:
@@ -186,22 +182,9 @@ def trial():
         # Delete the file from the input directory
         os.remove(os.path.join(input_directory, file_name))
     
-
-      
-#lex -parses files 
-#function main
-#Good habit: Put into function and call main function
-#replaceByRecog()    
-#replaceIP("err.txt")
-
-########################################     
-
-"""  '''Extra Regex I might need later  '''
-    dn_recog = "(\\?\/DC[\\=]=?\w{0,10}){2}"
-    tot_reg = "((\^?\\?\/DC[\\=]=?\w{0,10}){2}([\s/.\d\w\\/=/@/$]+)"
-"""
-
 if __name__ == "__main__":
+    
+    #cleanLogs()
     
     #Condor Logs
     file2 = "condor_logs/job.1.StartdLog.txt"
