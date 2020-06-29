@@ -1,0 +1,18 @@
+x509userproxysubject = "/DC=org/DC=cilogon/C=US/O=LIGO/CN\=USER "
+
+GSI "^\/DC\=ch\/DC\=cern\/OU\=computers\/CN\=USER " collector1
+GSI "^\/DC\=org\/DC\=incommon\/C\=US\/ST\=Illinois\/L\=Batavia\/O\=Fermi\ Research\ Alliance\/OU\=Fermilab\/CN\=USER " collector2
+GSI "^\/DC\=ch\/DC\=cern\/OU\=computers\/CN\=USER " collector3
+GSI "^\/DC\=org\/DC\=incommon\/C\=US\/ST\=Illinois\/L\=Batavia\/O\=Fermi\ Research\ Alliance\/OU\=Fermilab\/CN\=USER " collector4
+GSI "^\/DC\=ch\/DC\=cern\/OU\=computers\/CN\=USER " frontend
+GSI "^\/DC\=ch\/DC\=cern\/OU\=computers\/CN\=USER " condor
+GSI "^\/DC\=ch\/DC\=cern\/OU\=computers\/CN\=USER " collector1
+GSI "^\/DC\=org\/DC\=incommon\/C\=US\/ST\=Illinois\/L\=Batavia\/O\=Fermi\ Research\ Alliance\/OU\=Fermilab\/CN\=USER " collector2
+GSI "^\/DC\=ch\/DC\=cern\/OU\=computers\/CN\=USER " collector3
+GSI "^\/DC\=org\/DC\=incommon\/C\=US\/ST\=Illinois\/L\=Batavia\/O\=Fermi\ Research\ Alliance\/OU\=Fermilab\/CN\=USER " collector4
+GSI "^\/DC\=ch\/DC\=cern\/OU\=computers\/CN\=USER " frontend
+GSI "^\/DC\=ch\/DC\=cern\/OU\=computers\/CN\=USER " condor
+GSI "^\/DC\=org\/DC\=incommon\/C\=US\/ST\=CA\/L\=La\ Jolla\/O\=University\ of\ California\,\ San\ Diego\/OU\=UCSD\/CN\=USER " collector1
+GSI "^\/DC\=org\/DC\=incommon\/C\=US\/ST\=CA\/L\=La\ Jolla\/O\=University\ of\ California\,\ San\ Diego\/OU\=UCSD\/CN\=USER " condor
+CN badbbadbadbad CN= yikes yikes
+CN\=yoink yoink yoink

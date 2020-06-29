@@ -1,0 +1,606 @@
+Starting glidein_startup.sh at Wed Jun  3 13:20:30 PDT 2020 (1591215630)
+script_checksum   = '8c9a6cab9b22fe4dc93548aac0528874  /data1/condor_local/execute/dir_22854/condor_exec.exe'
+debug_mode        = 'std'
+condorg_cluster   = '2224810'
+condorg_subcluster= '3'
+condorg_schedd    = 'schedd_glideins1@gfactory-2.opensciencegrid.org'
+glidein_credential_id = '411868'
+glidein_factory   = 'OSG'
+glidein_name      = 'gfactory_instance'
+glidein_entry     = 'CMSHTPC_T2_US_UCSD_gw7'
+client_name       = 'CMSG-v1_0.overflow-xcache-socal'
+client_group      = 'overflow-xcache-socal'
+multi_glidein/restart = ''/''
+work_dir          = 'Condor'
+web_dir           = 'http://gfactory-2.opensciencegrid.org/factory/stage'
+sign_type         = 'sha1'
+proxy_url         = 'cvmfs-1.t2.ucsd.edu:3128'
+descript_fname    = 'description.k638br.cfg'
+descript_entry_fname = 'description.k638br.cfg'
+sign_id           = '0173e962ce691ecf8de4c798bbf419a5ff4a8416'
+sign_entry_id     = '6dba06c850caae75c9e6c5e6e17a747c36684405'
+client_web_dir              = 'http://vocms080.cern.ch/vofrontend/stage'
+client_descript_fname       = 'description.k61mvt.cfg'
+client_sign_type            = 'sha1'
+client_sign_id              = 'a40bc2b72b549f69ff309f22a1df26dd4936976f'
+client_web_group_dir        = 'http://vocms080.cern.ch/vofrontend/stage/group_overflow-xcache-socal'
+client_descript_group_fname = 'description.k61mvt.cfg'
+client_sign_group_id        = 'a7353e5838bc3c4b93668ea5c2dabb1db61ba2ea'
+
+Running on cabinet-2-2-29.t2.ucsd.edu
+System: Linux cabinet-2-2-29.t2.ucsd.edu 2.6.32-696.30.1.el6.x86_64 #1 SMP Tue May 22 03:28:18 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+Release: CentOS release 6.10 (Final)
+As: uid=36048(cuser2) gid=36048(cuser2) groups=36048(cuser2),1502(condorcg),1504(cusercg) context=unconfined_u:system_r:condor_startd_t:s0
+PID: 22892
+
+Started in /data1/condor_local/execute/dir_22854
+Running in /data1/condor_local/execute/dir_22854/glide_cKhDzX
+PARAM_LIST GLIDEIN_Client,CONDOR_VERSION,GLIDEIN_Glexec_Use,CMS_GLIDEIN_VERSION,GLIDEIN_Job_Max_Time,GLIDECLIENT_ReqNode,GLIDEIN_CLAIM_WORKLIFE_DYNAMIC,USE_PSS,MEMORY_USAGE_METRIC,GLIDEIN_CCB,GLIDEIN_Max_Idle,GLIDEIN_Monitoring_Enabled,CONDOR_ARCH,UPDATE_COLLECTOR_WITH_TCP,MIN_DISK_GBS,GLIDEIN_Max_Tail,USE_MATCH_AUTH,CONDOR_OS,GLIDEIN_Report_Failed,GLIDEIN_Collector
+Downloading files from Factory and Frontend
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/setup_script.sh
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/cat_consts.sh
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/condor_platform_select.sh
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/collector_setup.sh
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/create_temp_mapfile.sh
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/gwms-python
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/setup_x509.sh
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/check_wn_drainstate.sh
+SiteWMS_WN_Draining = False
+SiteWMS_WN_Preempt = False
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/mjf_setparams.sh
+MACHINE_TOTAL_CPU = "Unknown"
+MACHINE_HS06 = 132
+MACHINE_SHUTDOWNTIME = "Unknown"
+MACHINE_GRACE_SECS = "Unknown"
+JOB_ALLOCATED_CPU = "Unknown"
+JOB_HS06_JOB = "Unknown"
+JOB_SHUTDOWNTIME_JOB = "Unknown"
+JOB_GRACE_SECS_JOB = "Unknown"
+JOB_JOBSTART_SECS = 1591215629
+JOB_ID = "Unknown"
+JOB_WALL_LIMIT_SECS = 0
+JOB_CPU_LIMIT_SECS = "Unknown"
+JOB_MAX_RSS_BYTES = "Unknown"
+JOB_MAX_SWAP_BYTES = "Unknown"
+JOB_SCRATCH_LIMIT_BYTES = "Unknown"
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/client/cat_consts.sh
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/client/check_blacklist.sh
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/client_group_overflow-xcache-socal/cat_consts.sh
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/client_group_overflow-xcache-socal/check_blacklist.sh
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/entry_CMSHTPC_T2_US_UCSD_gw7/cat_consts.sh
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/entry_CMSHTPC_T2_US_UCSD_gw7/check_blacklist.sh
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/client/set_hold.sh
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/client/discover_CMSSW.sh
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/client/test_squid.sh
+starting SQUID VALIDATION
+node: cabinet-2-2-29.t2.ucsd.edu
+
+script version: 2020-03-30, Dave Dykstra and Edita Kizinevic
+
+Current directory is: /data1/condor_local/execute/dir_22854/glide_cKhDzX/squid
+
+Set up CMSSW ... starting
+Set up of CMSSW_10_2_22 completed
+
+Contents of cmsGetFnConnect frontier://FrontierProd are:
+frontier://(loadbalance=proxies)
+(proxyurl=http://cvmfs-1.t2.ucsd.edu:3128)
+(proxyurl=http://cvmfs-2.t2.ucsd.edu:3128)
+(backupproxyurl=http://cmsbproxy.fnal.gov:3128)
+(backupproxyurl=http://cmsbpfrontier.cern.ch:3128)
+(serverurl=http://cmsfrontier.cern.ch:8000/FrontierProd)
+(serverurl=http://cmsfrontier1.cern.ch:8000/FrontierProd)
+(serverurl=http://cmsfrontier2.cern.ch:8000/FrontierProd)
+(serverurl=http://cmsfrontier3.cern.ch:8000/FrontierProd)
+/FrontierProd
+
+Query (proxyurl=http://cvmfs-1.t2.ucsd.edu:3128) started: Wed Jun 3 13:20:50 PDT 2020
+(proxyurl=http://169.228.130.85:3128) is OK
+Query (proxyurl=http://cvmfs-1.t2.ucsd.edu:3128) ended: Wed Jun 3 13:20:50 PDT 2020
+
+Proxy test is OK.
+exit status squid frontier validation 0
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/client/export_siteconf_info.py
+No glidein_config environment variable present; defaulting value to 'glidein_config'
+Using SITECONF found at /cvmfs/cms.cern.ch/SITECONF/local.
+Setting value of CMSProcessingSiteName to T2_US_UCSD.
+Setting value of CMSPhedexNodeName to T2_US_UCSD.
+Setting value of CMSFallback_PhedexNodeName to T2_US_Caltech.
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/client/DIRACbenchmark.py
+No glidein_config environment variable present; defaulting value to 'glidein_config'
+Result from DIRAC benchmark: {'raw': [7.921419517779273, 7.6546233916210555, 7.9314720822681686, 7.8076202365522995, 7.9138968018897655, 7.9189103578599926, 7.9567154674020459, 7.8247261338554148], 'sum': 62.929383989228015, 'mean': 7.8661729986535018}
+Detected CPU model 'Intel(R) Xeon(R) CPU           E5530  @ 2.40GHz'
+Setting value of DIRACBenchmark to 7.86617299865.
+Setting value of CpuModelName to "Intel(R)_Xeon(R)_CPU___________E5530__@_2.40GHz".
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/test_os.sh
+Any OS OK, passing by default
+OS test passed
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/define_OSG_SE.sh
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+GLIDEIN_Factory OSG
+GLIDEIN_Name gfactory_instance
+GLIDEIN_Entry_Name CMSHTPC_T2_US_UCSD_gw7
+GLIDECLIENT_Name CMSG-v1_0.overflow-xcache-socal
+GLIDECLIENT_Group overflow-xcache-socal
+GLIDEIN_CredentialIdentifier 411868
+CONDORG_CLUSTER 2224810
+CONDORG_SUBCLUSTER 3
+CONDORG_SCHEDD schedd_glideins1@gfactory-2.opensciencegrid.org
+DEBUG_MODE 1
+GLIDEIN_STARTUP_PID 22892
+GLIDEIN_WORK_DIR /data1/condor_local/execute/dir_22854/glide_cKhDzX/main
+GLIDEIN_ENTRY_WORK_DIR /data1/condor_local/execute/dir_22854/glide_cKhDzX/entry_CMSHTPC_T2_US_UCSD_gw7
+TMP_DIR /data1/condor_local/execute/dir_22854/glide_cKhDzX/tmp
+GLIDEIN_LOCAL_TMP_DIR /tmp/glide_cuser2_Se2XKY
+PROXY_URL cvmfs-1.t2.ucsd.edu:3128
+DESCRIPTION_FILE description.k638br.cfg
+DESCRIPTION_ENTRY_FILE description.k638br.cfg
+GLIDEIN_Signature 0173e962ce691ecf8de4c798bbf419a5ff4a8416
+GLIDEIN_Entry_Signature 6dba06c850caae75c9e6c5e6e17a747c36684405
+GLIDECLIENT_WORK_DIR /data1/condor_local/execute/dir_22854/glide_cKhDzX/client
+GLIDECLIENT_DESCRIPTION_FILE description.k61mvt.cfg
+GLIDECLIENT_Signature a40bc2b72b549f69ff309f22a1df26dd4936976f
+GLIDECLIENT_GROUP_WORK_DIR /data1/condor_local/execute/dir_22854/glide_cKhDzX/client_group_overflow-xcache-socal
+GLIDECLIENT_DESCRIPTION_GROUP_FILE description.k61mvt.cfg
+GLIDECLIENT_Group_Signature a7353e5838bc3c4b93668ea5c2dabb1db61ba2ea
+ADD_CONFIG_LINE_SOURCE /data1/condor_local/execute/dir_22854/glide_cKhDzX/add_config_line.source
+GET_ID_SELECTORS_SOURCE /data1/condor_local/execute/dir_22854/glide_cKhDzX/get_id_selectors.source
+WRAPPER_LIST /data1/condor_local/execute/dir_22854/glide_cKhDzX/wrapper_list.lst
+GLIDEIN_INITIALIZED 0
+GLIDEIN_ADVERTISE_ONLY 0
+GLIDEIN_Client CMSG-v1_0.overflow-xcache-socal
+CONDOR_VERSION 8.8.8
+GLIDEIN_Glexec_Use OPTIONAL
+CMS_GLIDEIN_VERSION 18
+GLIDEIN_Job_Max_Time 14400
+GLIDECLIENT_ReqNode gfactory-2.opensciencegrid.org
+GLIDEIN_CLAIM_WORKLIFE_DYNAMIC cpus*(6*3600)
+USE_PSS True
+MEMORY_USAGE_METRIC ifthenelse(ProportionalSetSizeKb=?=UNDEFINED,(ResidentSetSize +1023)/1024,(ProportionalSetSizeKb + 1023)/1024)
+GLIDEIN_Max_Idle 600
+GLIDEIN_Monitoring_Enabled False
+CONDOR_ARCH default
+UPDATE_COLLECTOR_WITH_TCP True
+MIN_DISK_GBS 1
+GLIDEIN_Max_Tail 600
+USE_MATCH_AUTH True
+CONDOR_OS default
+ERROR_GEN_PATH /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/error_gen.sh
+CONSTS_FILE /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/constants.cfg
+CONDOR_VARS_FILE /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/condor_vars.lst
+UNTAR_CFG_FILE /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/untar.cfg
+GRIDMAP /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/grid-mapfile
+CONDOR_PLATFORM_8.9.6-default-default 0
+CONDOR_PLATFORM_8.9.6-linux-rhel6-default 0
+CONDOR_PLATFORM_8.9.x-default-default 0
+CONDOR_PLATFORM_8.9.x-linux-rhel6-default 0
+CONDOR_PLATFORM_8.9.6-rhel7-default 0
+CONDOR_PLATFORM_8.9.6-linux-rhel7-default 0
+CONDOR_PLATFORM_8.9.x-rhel7-default 0
+CONDOR_PLATFORM_8.9.x-linux-rhel7-default 0
+CONDOR_PLATFORM_8.8.8-linux-rhel6-default 0
+CONDOR_PLATFORM_8.8.x-default-default 0
+CONDOR_PLATFORM_8.8.x-linux-rhel6-default 0
+CONDOR_PLATFORM_default-default-default 0
+CONDOR_PLATFORM_default-linux-rhel6-default 0
+CONDOR_PLATFORM_8.8.8-rhel7-default 0
+CONDOR_PLATFORM_8.8.8-linux-rhel7-default 0
+CONDOR_PLATFORM_8.8.x-rhel7-default 0
+CONDOR_PLATFORM_8.8.x-linux-rhel7-default 0
+CONDOR_PLATFORM_default-rhel7-default 0
+CONDOR_PLATFORM_default-linux-rhel7-default 0
+CONDOR_PLATFORM_8.9.4-default-default 0
+CONDOR_PLATFORM_8.9.4-linux-rhel6-default 0
+CONDOR_PLATFORM_8.9.4-rhel7-default 0
+CONDOR_PLATFORM_8.9.4-linux-rhel7-default 0
+CONDOR_PLATFORM_8.8.7-default-default 0
+CONDOR_PLATFORM_8.8.7-linux-rhel6-default 0
+CONDOR_PLATFORM_8.8.7-rhel7-default 0
+CONDOR_PLATFORM_8.8.7-linux-rhel7-default 0
+CONDOR_PLATFORM_8.8.6-default-default 0
+CONDOR_PLATFORM_8.8.6-linux-rhel6-default 0
+CONDOR_PLATFORM_8.8.6-rhel7-default 0
+CONDOR_PLATFORM_8.8.6-linux-rhel7-default 0
+CONDOR_PLATFORM_8.8.5-default-default 0
+CONDOR_PLATFORM_8.8.5-linux-rhel6-default 0
+CONDOR_PLATFORM_8.8.5-rhel7-default 0
+CONDOR_PLATFORM_8.8.5-linux-rhel7-default 0
+CONDOR_PLATFORM_8.8.2-default-default 0
+CONDOR_PLATFORM_8.8.2-linux-rhel6-default 0
+CONDOR_PLATFORM_8.8.2-rhel7-default 0
+CONDOR_PLATFORM_8.8.2-linux-rhel7-default 0
+CONDOR_PLATFORM_8.7.9-default-default 0
+CONDOR_PLATFORM_8.7.9-linux-rhel6-default 0
+CONDOR_PLATFORM_8.7.x-default-default 0
+CONDOR_PLATFORM_8.7.x-linux-rhel6-default 0
+CONDOR_PLATFORM_8.7.9-rhel7-default 0
+CONDOR_PLATFORM_8.7.9-linux-rhel7-default 0
+CONDOR_PLATFORM_8.7.x-rhel7-default 0
+CONDOR_PLATFORM_8.7.x-linux-rhel7-default 0
+CONDOR_PLATFORM_8.6.12-default-default 0
+CONDOR_PLATFORM_8.6.12-linux-rhel6-default 0
+CONDOR_PLATFORM_8.6.x-default-default 0
+CONDOR_PLATFORM_8.6.x-linux-rhel6-default 0
+CONDOR_PLATFORM_8.6.12-rhel7-default 0
+CONDOR_PLATFORM_8.6.12-linux-rhel7-default 0
+CONDOR_PLATFORM_8.6.x-rhel7-default 0
+CONDOR_PLATFORM_8.6.x-linux-rhel7-default 0
+CONDOR_PLATFORM_8.6.5-default-default 0
+CONDOR_PLATFORM_8.6.5-linux-rhel6-default 0
+CONDOR_PLATFORM_8.6.5-rhel7-default 0
+CONDOR_PLATFORM_8.6.5-linux-rhel7-default 0
+CONDOR_PLATFORM_8.6.3-default-default 0
+CONDOR_PLATFORM_8.6.3-linux-rhel6-default 0
+CONDOR_PLATFORM_8.6.3-rhel7-default 0
+CONDOR_PLATFORM_8.6.3-linux-rhel7-default 0
+FactoryType production
+GCB_ORDER NONE
+GLEXEC_JOB True
+GLIDEIN_Req_MUPJ_gLExec False
+GLIDEIN_Retire_Time_Spread 1200
+GLIDEIN_SINGULARITY_REQUIRE OPTIONAL
+GSI_DELEGATION_KEYBITS 1024
+Site_Req_Explicit_Auth False
+USE_CCB True
+VOS_USING_SE_BASEPATH 
+VOS_USING_SE_OTHER_SUBDIR 
+VOS_USING_SE_VONAME_LOWERCASE 
+CONDOR_PLATFORM_8.8.8-default-default 1
+CONDOR_DIR /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/condor
+GLIDEIN_Collector cmssrv623.fnal.gov:$RANDOM_INTEGER(9621,9720),vocms0815.cern.ch:9618?sock=collector$RANDOM_INTEGER(9621,9720)
+GLIDEIN_Site_Collector osg-gw-7.t2.ucsd.edu:9619
+GLIDEIN_CCB vocms0806.cern.ch:9618?sock=collector$RANDOM_INTEGER(9621,9720),cmssrv601.fnal.gov:$RANDOM_INTEGER(9621,9720)
+GLIDEIN_Master_Collector cmssrv623.fnal.gov:$RANDOM_INTEGER(9621,9720),vocms0815.cern.ch:9618?sock=collector$RANDOM_INTEGER(9621,9720)
+X509_CONDORMAP /data1/condor_local/execute/dir_22854/glide_cKhDzX/condor_mapfile
+X509_GRIDMAP_TRUSTED_DNS *
+X509_CERT_DIR /etc/grid-security/certificates/
+X509_USER_PROXY /data1/condor_local/execute/dir_22854/glide_cKhDzX/ticket/myproxy
+X509_USER_PROXY_ORIG /data1/condor_local/execute/dir_22854/credential_CMSG-v1_0.overflow-xcache-socal_411868
+X509_EXPIRE 1591452016
+GLIDEIN_condor_config_startd_cron_include condor_config_startd_cron_include
+GLIDECLIENT_CONSTS_FILE /data1/condor_local/execute/dir_22854/glide_cKhDzX/client/constants.cfg
+GLIDECLIENT_CONDOR_VARS_FILE /data1/condor_local/execute/dir_22854/glide_cKhDzX/client/condor_vars.lst
+GLIDECLIENT_UNTAR_CFG_FILE /data1/condor_local/execute/dir_22854/glide_cKhDzX/client/untar.cfg
+GLIDECLIENT_BLACKLIST_FILE /data1/condor_local/execute/dir_22854/glide_cKhDzX/client/nodes.blacklist
+GLEXEC_HOLD_ON_INITIAL_FAILURE 0
+GLEXEC_RETRY_DELAY 30
+GLIDEIN_Expose_Grid_Env True
+GLIDEIN_Report_Failed ALWAYS
+GLIDEIN_SINGULARITY_BINDPATH /storage,/lfs_roots,/cms,/etc/cvmfs/SITECONF
+MODULE_USE 0
+CVMFS_REPOS_LIST cms.cern.ch,oasis.opensciencegrid.org,singularity.opensciencegrid.org
+GLIDEIN_Singularity_Use REQUIRED
+SINGULARITY_IMAGES_DICT default:/cvmfs/singularity.opensciencegrid.org/cmssw/cms:rhel6-m202006,rhel6:/cvmfs/singularity.opensciencegrid.org/cmssw/cms:rhel6-m202006,rhel7:/cvmfs/singularity.opensciencegrid.org/cmssw/cms:rhel7-m202006
+SLOTS_LAYOUT partitionable
+UPDATE_INTERVAL $RANDOM_INTEGER(680,750,1)
+GLIDECLIENT_Start ifthenelse(GLIDEIN_REQUIRED_OS=?="any", (HAS_SINGULARITY=?=true && GLIDEIN_PS_HAS_SINGULARITY=!=false),( isUndefined(REQUIRED_OS) || REQUIRED_OS=?="any" || REQUIRED_OS=?=GLIDEIN_REQUIRED_OS )) && ifthenelse(MaxWallTimeMins=!=UNDEFINED,(MaxWallTimeMins*60)<(GLIDEIN_ToDie-MyCurrentTime),(16*3600)<(GLIDEIN_ToDie-MyCurrentTime)) && ((DynamicSlot =!= true) || (RequestCpus=?=Cpus)) && ifthenelse(SlotType=?="Static", RequestCpus <= Cpus, True)
+GLIDECLIENT_GRIDMAP /data1/condor_local/execute/dir_22854/glide_cKhDzX/client/grid-mapfile
+GLIDECLIENT_GROUP_CONSTS_FILE /data1/condor_local/execute/dir_22854/glide_cKhDzX/client_group_overflow-xcache-socal/constants.cfg
+GLIDECLIENT_GROUP_CONDOR_VARS_FILE /data1/condor_local/execute/dir_22854/glide_cKhDzX/client_group_overflow-xcache-socal/condor_vars.lst
+GLIDECLIENT_GROUP_UNTAR_CFG_FILE /data1/condor_local/execute/dir_22854/glide_cKhDzX/client_group_overflow-xcache-socal/untar.cfg
+GLIDECLIENT_GROUP_BLACKLIST_FILE /data1/condor_local/execute/dir_22854/glide_cKhDzX/client_group_overflow-xcache-socal/nodes.blacklist
+GLIDECLIENT_Group_Start ( (ifthenelse(CMS_ALLOW_OVERFLOW isnt undefined,CMS_ALLOW_OVERFLOW=?="True", undefined)) && (CRAB_UserRole=!="production") && (ifthenelse(DESIRED_Overflow_Region isnt undefined, stringListMember(GLIDEIN_Country,DESIRED_Overflow_Region),undefined)) && (DESIRED_CMSDataset=!=undefined) && regexp("/*MINI*", DESIRED_CMSDataset)  && ( isUndefined(RequestGPUs) || RequestGPUs =?= 0 ) )
+ENTRY_CONSTS_FILE /data1/condor_local/execute/dir_22854/glide_cKhDzX/entry_CMSHTPC_T2_US_UCSD_gw7/constants.cfg
+ENTRY_CONDOR_VARS_FILE /data1/condor_local/execute/dir_22854/glide_cKhDzX/entry_CMSHTPC_T2_US_UCSD_gw7/condor_vars.lst
+ENTRY_UNTAR_CFG_FILE /data1/condor_local/execute/dir_22854/glide_cKhDzX/entry_CMSHTPC_T2_US_UCSD_gw7/untar.cfg
+ENTRY_BLACKLIST_FILE /data1/condor_local/execute/dir_22854/glide_cKhDzX/entry_CMSHTPC_T2_US_UCSD_gw7/nodes.blacklist
+# 
+GLEXEC_BIN NONE
+GLIDEIN_CMSSite T2_US_UCSD
+GLIDEIN_CPUS 8
+GLIDEIN_Country US
+GLIDEIN_MaxMemMBs 20240
+GLIDEIN_Max_Walltime 171000
+GLIDEIN_REQUIRED_OS any
+GLIDEIN_ResourceName UCSDT2
+GLIDEIN_Retire_Time 108000
+GLIDEIN_SEs bsrm-1.t2.ucsd.edu,bsrm-3.t2.ucsd.edu
+GLIDEIN_Site UCSD
+GLIDEIN_Supported_VOs CMS,HCC,NEBioGrid,SBGrid,GLUEX,UCSDRok,NWICG,HCCLONG,CMST2UCSD,EngageVO,NEES,OSGVO,CIGI,glowVO,OSGEDU,Fermilab,LIGO,UCLHC,IceCube,nanoHUB,ATLAS,DUNE
+GLIDEIN_Gatekeeper osg-gw-7.t2.ucsd.edu osg-gw-7.t2.ucsd.edu:9619
+GLIDEIN_GridType condor
+GLIDEIN_REQUIRE_VOMS False
+GLIDEIN_REQUIRE_GLEXEC_USE False
+GLIDEIN_TrustDomain grid
+GLIDEIN_SupportedAuthenticationMethod grid_proxy
+GLIDEIN_SlotsLayout fixed
+GLIDEIN_WorkDir Condor
+GLIDEIN_Verbosity std
+GLIDEIN_ProxyURL OSG
+# --- End entry constants       ---
+CMS_HOLD_MEMORY ((ResidentSetSize=!=undefined)&&(ResidentSetSize>4000000))
+CMS_HOLDREASON_MEMORY Memory of 4G as per CMS rules exceeded
+CMS_HOLD_DISK ((DiskUsage=!=undefined)&&(DiskUsage>80000000))
+CMS_HOLDREASON_DISK Disk of 80G as per CMS rules exceeded
+WANT_HOLD (($(CMS_HOLD_MEMORY))||($(CMS_HOLD_DISK)))
+WANT_HOLD_REASON ifThenElse($(CMS_HOLD_MEMORY),$(CMS_HOLDREASON_MEMORY),ifThenElse($(CMS_HOLD_DISK),$(CMS_HOLDREASON_DISK),undefined))
+PREEMPT $(WANT_HOLD)
+WANT_SUSPEND False
+WANT_SUSPEND_VANILLA False
+WANT_VACATE True
+PREEMPT_GRACE_TIME 10000000*(($(PREEMPT))=!=True)
+GLIDECLIENT_CMS_TEST_SQUID /data1/condor_local/execute/dir_22854/glide_cKhDzX/client/test_squid
+CMS_VALIDATION_FRONTIER 0
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+define_OSG_SE: VO did not identify itself.. nothing to do
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/smart_partitionable_rc.sh
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/check_proxy.sh
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/create_mapfile.sh
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/validate_node.sh
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/setup_network.sh
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/gcb_setup.sh
+Not using GCB
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/singularity_setup.sh
+Wed Jun  3 13:22:08 PDT 2020 Starting singularity_setup.sh. Importing singularity_util.sh.
+Wed Jun  3 13:22:08 PDT 2020 SINGULARITY_IMAGE_RESTRICTIONS not configured. Defaulting to cvmfs
+Wed Jun  3 13:22:08 PDT 2020 Factory's desire to use Singularity: OPTIONAL
+Wed Jun  3 13:22:08 PDT 2020 VO's desire to use Singularity:      REQUIRED
+Wed Jun  3 13:22:08 PDT 2020 Entry configured with Singularity:   
+Wed Jun  3 13:22:08 PDT 2020 Looking for Singularity image for [default,rhel7,rhel6] with restrictions cvmfs
+Wed Jun  3 13:22:08 PDT 2020 Searching and testing the singularity binary
+HAS_SINGULARITY = True
+GWMS_SINGULARITY_STATUS = "REQUIRED"
+SINGULARITY_PATH = "/usr/bin/singularity"
+GWMS_SINGULARITY_PATH = "/usr/bin/singularity"
+SINGULARITY_VERSION = "singularity version 3.4.0-1.2.osg34.el6"
+GWMS_SINGULARITY_VERSION = "singularity version 3.4.0-1.2.osg34.el6"
+SINGULARITY_MODE = "privileged"
+GWMS_SINGULARITY_MODE = "privileged"
+SINGULARITY_IMAGES_DICT = "default:/cvmfs/singularity.opensciencegrid.org/cmssw/cms:rhel6-m202006,rhel6:/cvmfs/singularity.opensciencegrid.org/cmssw/cms:rhel6-m202006,rhel7:/cvmfs/singularity.opensciencegrid.org/cmssw/cms:rhel7-m202006"
+GLIDEIN_REQUIRED_OS = "any"
+GLIDEIN_PROVIDES = "singularity/privileged"
+Wed Jun  3 13:22:10 PDT 2020 Decided to use Singularity (REQUIRED)
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/glexec_setup.sh
+Wed Jun  3 13:22:10 PDT 2020 Factory requires glidein to use glexec: False
+Wed Jun  3 13:22:10 PDT 2020 VO's desire to use glexec: OPTIONAL
+Wed Jun  3 13:22:10 PDT 2020 Entry configured with glexec: NONE
+Wed Jun  3 13:22:10 PDT 2020 VO has set the use glexec to OPTIONAL but site is not configured with glexec
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/java_setup.sh
+Wed Jun  3 13:22:10 PDT 2020 GLIDEIN_Java_Use not configured. Defaulting it to NEVER
+Wed Jun  3 13:22:10 PDT 2020 VO does not want to use Java
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/glidein_memory_setup.sh
+Wed Jun  3 13:22:11 PDT 2020 Setting GLIDEIN_MaxMemMBs=20240
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/glidein_cpus_setup.sh
+Wed Jun  3 13:22:11 PDT 2020 Setting GLIDEIN_CPUS=8 
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/glidein_sitewms_setup.sh
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/script_wrapper.sh
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/smart_partitionable.sh
+Executing /data1/condor_local/execute/dir_22854/glide_cKhDzX/main/condor_chirp
+=== Last script starting Wed Jun  3 13:22:12 PDT 2020 (1591215732) after validating for 102 ===
+
+=== Condor starting Wed Jun  3 13:22:14 PDT 2020 (1591215734) ===
+=== Condor started in background, now waiting on process 32592 ===
+=== Condor ended Fri Jun  5 11:18:36 PDT 2020 (1591381116) after 165382 ===
+
+Total jobs/goodZ jobs/goodNZ jobs/badSignal jobs/badOther jobs below are normalized to 1 Core
+=== Stats of main ===
+06/03/20 13:24:29 Starting job 55647155.0 from 137.138.62.16:4080?addrs=137.138.62.16-4080&noUDP&sock=2737544_25d2_999621
+06/04/20 00:38:11 Terminated job 55647155.0 from 137.138.62.16:4080?addrs=137.138.62.16-4080&noUDP&sock=2737544_25d2_999621 status 0 duration 40422
+06/04/20 00:42:10 Starting job 53884926.0 from 137.138.76.88:4080?addrs=137.138.76.88-4080&noUDP&sock=365751_6ab2_1023572
+06/04/20 16:52:35 Terminated job 53884926.0 from 137.138.76.88:4080?addrs=137.138.76.88-4080&noUDP&sock=365751_6ab2_1023572 status 0 duration 58225
+06/04/20 20:50:54 Starting job 43815330.0 from 188.184.80.88:4080?addrs=188.184.80.88-4080&noUDP&sock=1818691_15fe_959292
+06/04/20 22:15:13 Terminated job 43815330.0 from 188.184.80.88:4080?addrs=188.184.80.88-4080&noUDP&sock=1818691_15fe_959292 status 142 duration 5059
+06/04/20 22:18:20 Starting job 56033209.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1211810
+06/05/20 01:18:39 Terminated job 56033209.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1211810 status 0 duration 10819
+06/05/20 03:36:20 Starting job 53941196.0 from 137.138.76.88:4080?addrs=137.138.76.88-4080&noUDP&sock=365751_6ab2_1064202
+06/05/20 04:36:21 Terminated job 53941196.0 from 137.138.76.88:4080?addrs=137.138.76.88-4080&noUDP&sock=365751_6ab2_1064202 signal 15 duration 3601
+06/05/20 05:50:28 Starting job 53117398.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_943693
+06/05/20 06:41:41 Terminated job 53117398.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_943693 status 0 duration 3073
+06/05/20 07:02:21 Starting job 56041889.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1217520
+06/05/20 08:19:24 Terminated job 56041889.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1217520 status 0 duration 4623
+06/05/20 08:19:33 Starting job 56044318.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1217520
+06/05/20 09:23:58 Terminated job 56044318.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1217520 status 0 duration 3865
+06/03/20 13:24:32 Starting job 55647159.0 from 137.138.62.16:4080?addrs=137.138.62.16-4080&noUDP&sock=2737544_25d2_999627
+06/04/20 00:35:46 Terminated job 55647159.0 from 137.138.62.16:4080?addrs=137.138.62.16-4080&noUDP&sock=2737544_25d2_999627 status 0 duration 40274
+06/04/20 00:42:14 Starting job 53884939.0 from 137.138.76.88:4080?addrs=137.138.76.88-4080&noUDP&sock=365751_6ab2_1023591
+06/04/20 19:44:41 Terminated job 53884939.0 from 137.138.76.88:4080?addrs=137.138.76.88-4080&noUDP&sock=365751_6ab2_1023591 status 0 duration 68547
+06/04/20 20:53:01 Starting job 43815584.0 from 188.184.80.88:4080?addrs=188.184.80.88-4080&noUDP&sock=1818691_15fe_959465
+06/04/20 22:15:16 Terminated job 43815584.0 from 188.184.80.88:4080?addrs=188.184.80.88-4080&noUDP&sock=1818691_15fe_959465 status 142 duration 4935
+06/04/20 22:18:18 Starting job 56033211.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1211815
+06/05/20 01:03:42 Terminated job 56033211.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1211815 status 0 duration 9924
+06/05/20 03:35:58 Starting job 53941253.0 from 137.138.76.88:4080?addrs=137.138.76.88-4080&noUDP&sock=365751_6ab2_1064271
+06/05/20 04:36:03 Terminated job 53941253.0 from 137.138.76.88:4080?addrs=137.138.76.88-4080&noUDP&sock=365751_6ab2_1064271 signal 15 duration 3605
+06/05/20 05:50:29 Starting job 53117405.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_943703
+06/05/20 06:41:43 Terminated job 53117405.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_943703 status 0 duration 3074
+06/05/20 07:02:22 Starting job 56041849.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1217569
+06/05/20 08:26:41 Terminated job 56041849.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1217569 status 0 duration 5059
+06/03/20 13:24:33 Starting job 55647160.0 from 137.138.62.16:4080?addrs=137.138.62.16-4080&noUDP&sock=2737544_25d2_999629
+06/04/20 00:32:41 Terminated job 55647160.0 from 137.138.62.16:4080?addrs=137.138.62.16-4080&noUDP&sock=2737544_25d2_999629 status 0 duration 40088
+06/04/20 00:42:14 Starting job 53884943.0 from 137.138.76.88:4080?addrs=137.138.76.88-4080&noUDP&sock=365751_6ab2_1023596
+06/04/20 18:15:42 Terminated job 53884943.0 from 137.138.76.88:4080?addrs=137.138.76.88-4080&noUDP&sock=365751_6ab2_1023596 status 0 duration 63208
+06/04/20 20:53:03 Starting job 43815625.0 from 188.184.80.88:4080?addrs=188.184.80.88-4080&noUDP&sock=1818691_15fe_959496
+06/04/20 21:55:04 Terminated job 43815625.0 from 188.184.80.88:4080?addrs=188.184.80.88-4080&noUDP&sock=1818691_15fe_959496 status 85 duration 3721
+06/04/20 22:01:23 Starting job 53110234.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_938821
+06/05/20 01:02:39 Terminated job 53110234.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_938821 status 0 duration 10876
+06/05/20 03:36:16 Starting job 53941315.0 from 137.138.76.88:4080?addrs=137.138.76.88-4080&noUDP&sock=365751_6ab2_1064325
+06/05/20 04:36:21 Terminated job 53941315.0 from 137.138.76.88:4080?addrs=137.138.76.88-4080&noUDP&sock=365751_6ab2_1064325 signal 15 duration 3605
+06/05/20 05:50:29 Starting job 53117410.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_943708
+06/05/20 06:45:46 Terminated job 53117410.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_943708 status 0 duration 3317
+06/05/20 07:02:24 Starting job 56041965.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1217592
+06/05/20 08:24:09 Terminated job 56041965.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1217592 status 0 duration 4905
+06/05/20 08:24:19 Starting job 56044576.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1217592
+06/05/20 08:54:00 Terminated job 56044576.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1217592 status 0 duration 1781
+06/03/20 13:24:34 Starting job 55647161.0 from 137.138.62.16:4080?addrs=137.138.62.16-4080&noUDP&sock=2737544_25d2_999630
+06/04/20 00:34:44 Terminated job 55647161.0 from 137.138.62.16:4080?addrs=137.138.62.16-4080&noUDP&sock=2737544_25d2_999630 status 0 duration 40210
+06/04/20 00:42:15 Starting job 53884963.0 from 137.138.76.88:4080?addrs=137.138.76.88-4080&noUDP&sock=365751_6ab2_1023601
+06/04/20 11:18:54 Terminated job 53884963.0 from 137.138.76.88:4080?addrs=137.138.76.88-4080&noUDP&sock=365751_6ab2_1023601 status 0 duration 38199
+06/04/20 11:23:03 Starting job 43779469.0 from 188.184.80.88:4080?addrs=188.184.80.88-4080&noUDP&sock=1818691_15fe_951536
+06/04/20 13:34:00 Terminated job 43779469.0 from 188.184.80.88:4080?addrs=188.184.80.88-4080&noUDP&sock=1818691_15fe_951536 status 0 duration 7857
+06/04/20 13:36:55 Starting job 52377204.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1070674
+06/05/20 06:23:54 Terminated job 52377204.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1070674 status 0 duration 60419
+06/05/20 07:02:25 Starting job 56041984.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1217610
+06/05/20 08:21:23 Terminated job 56041984.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1217610 status 0 duration 4738
+06/03/20 13:27:51 Starting job 53070612.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_900162
+06/03/20 14:11:24 Terminated job 53070612.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_900162 status 0 duration 2613
+06/03/20 14:11:33 Starting job 53070709.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_900162
+06/03/20 14:30:50 Terminated job 53070709.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_900162 status 0 duration 1157
+06/03/20 14:31:00 Starting job 53070757.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_900162
+06/03/20 14:56:21 Terminated job 53070757.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_900162 status 0 duration 1521
+06/03/20 14:56:31 Starting job 53070820.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_900162
+06/03/20 15:09:47 Terminated job 53070820.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_900162 status 0 duration 796
+06/03/20 15:09:56 Starting job 53070870.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_900162
+06/03/20 15:39:48 Terminated job 53070870.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_900162 status 0 duration 1792
+06/03/20 15:39:57 Starting job 53071083.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_900162
+06/03/20 15:52:53 Terminated job 53071083.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_900162 status 0 duration 776
+06/03/20 15:53:03 Starting job 53076212.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_900162
+06/03/20 16:08:35 Terminated job 53076212.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_900162 status 0 duration 932
+06/03/20 16:08:46 Starting job 53071396.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_900162
+06/03/20 16:22:46 Terminated job 53071396.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_900162 status 0 duration 840
+06/03/20 16:22:56 Starting job 53071588.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_900162
+06/03/20 16:37:28 Terminated job 53071588.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_900162 status 0 duration 872
+06/03/20 16:37:37 Starting job 53075496.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_900162
+06/03/20 16:47:12 Terminated job 53075496.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_900162 status 0 duration 575
+06/03/20 16:47:23 Starting job 53076931.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_900162
+06/03/20 17:08:41 Terminated job 53076931.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_900162 status 0 duration 1278
+06/03/20 17:11:20 Starting job 55976907.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1168535
+06/03/20 17:24:56 Terminated job 55976907.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1168535 status 0 duration 816
+06/03/20 17:27:52 Starting job 49138804.0 from 188.184.31.202:4080?addrs=188.184.31.202-4080&noUDP&sock=867172_df38_1027810
+06/03/20 18:44:57 Terminated job 49138804.0 from 188.184.31.202:4080?addrs=188.184.31.202-4080&noUDP&sock=867172_df38_1027810 status 0 duration 4625
+06/03/20 18:49:20 Starting job 53346516.0 from 137.138.148.117:4080?addrs=137.138.148.117-4080&noUDP&sock=615866_0f8d_909029
+06/03/20 21:33:14 Terminated job 53346516.0 from 137.138.148.117:4080?addrs=137.138.148.117-4080&noUDP&sock=615866_0f8d_909029 status 0 duration 9834
+06/03/20 21:41:24 Starting job 52339413.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1037949
+06/03/20 21:58:16 Terminated job 52339413.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1037949 status 0 duration 1012
+06/03/20 21:58:26 Starting job 52339892.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1037949
+06/03/20 22:25:54 Terminated job 52339892.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1037949 status 0 duration 1648
+06/03/20 22:26:05 Starting job 52346144.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1037949
+06/03/20 22:58:23 Terminated job 52346144.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1037949 status 0 duration 1938
+06/03/20 22:58:34 Starting job 52343839.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1037949
+06/03/20 22:59:34 Terminated job 52343839.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1037949 signal 15 duration 60
+06/03/20 22:59:43 Starting job 52346386.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802
+06/03/20 23:23:53 Terminated job 52346386.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802 status 0 duration 1450
+06/03/20 23:24:02 Starting job 52346675.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802
+06/03/20 23:47:41 Terminated job 52346675.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802 status 0 duration 1419
+06/03/20 23:47:54 Starting job 52351947.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802
+06/04/20 00:03:21 Terminated job 52351947.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802 status 0 duration 927
+06/04/20 00:03:30 Starting job 52348044.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802
+06/04/20 00:17:53 Terminated job 52348044.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802 status 0 duration 863
+06/04/20 00:18:03 Starting job 52354349.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802
+06/04/20 00:32:53 Terminated job 52354349.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802 status 0 duration 890
+06/04/20 00:33:02 Starting job 52355295.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802
+06/04/20 00:46:53 Terminated job 52355295.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802 status 0 duration 831
+06/04/20 00:47:03 Starting job 52355137.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802
+06/04/20 01:15:14 Terminated job 52355137.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802 status 0 duration 1691
+06/04/20 01:15:23 Starting job 52358489.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802
+06/04/20 01:48:07 Terminated job 52358489.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802 status 0 duration 1964
+06/04/20 01:48:16 Starting job 52350203.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802
+06/04/20 01:58:57 Terminated job 52350203.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802 status 0 duration 641
+06/04/20 01:59:09 Starting job 52350532.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802
+06/04/20 02:16:17 Terminated job 52350532.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802 status 0 duration 1028
+06/04/20 02:16:28 Starting job 52358487.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802
+06/04/20 02:37:04 Terminated job 52358487.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802 status 0 duration 1236
+06/04/20 02:37:14 Starting job 52351655.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802
+06/04/20 03:18:45 Terminated job 52351655.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802 status 0 duration 2491
+06/04/20 03:18:56 Starting job 52365299.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802
+06/04/20 03:49:39 Terminated job 52365299.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802 status 0 duration 1843
+06/04/20 03:49:49 Starting job 52367293.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802
+06/04/20 04:07:43 Terminated job 52367293.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802 status 0 duration 1074
+06/04/20 04:07:56 Starting job 52368467.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802
+06/04/20 04:54:11 Terminated job 52368467.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1041802 status 0 duration 2775
+06/04/20 05:15:24 Starting job 43789088.0 from 188.184.80.88:4080?addrs=188.184.80.88-4080&noUDP&sock=1818691_15fe_944741
+06/04/20 07:58:11 Terminated job 43789088.0 from 188.184.80.88:4080?addrs=188.184.80.88-4080&noUDP&sock=1818691_15fe_944741 status 0 duration 9767
+06/04/20 08:04:40 Starting job 55869657.0 from 188.184.30.35:4080?addrs=188.184.30.35-4080&noUDP&sock=2492195_94f9_1121454
+06/04/20 13:53:16 Terminated job 55869657.0 from 188.184.30.35:4080?addrs=188.184.30.35-4080&noUDP&sock=2492195_94f9_1121454 status 0 duration 20916
+06/04/20 13:56:15 Starting job 54384319.0 from 137.138.152.48:4080?addrs=137.138.152.48-4080&noUDP&sock=1949694_8ced_1022842
+06/04/20 14:23:15 Terminated job 54384319.0 from 137.138.152.48:4080?addrs=137.138.152.48-4080&noUDP&sock=1949694_8ced_1022842 signal 15 duration 1620
+06/04/20 14:23:34 Starting job 54388278.0 from 137.138.152.48:4080?addrs=137.138.152.48-4080&noUDP&sock=1949694_8ced_1022948
+06/05/20 11:13:46 Terminated job 54388278.0 from 137.138.152.48:4080?addrs=137.138.152.48-4080&noUDP&sock=1949694_8ced_1022948 signal 15 duration 75012
+06/04/20 05:15:24 Starting job 43789045.0 from 188.184.80.88:4080?addrs=188.184.80.88-4080&noUDP&sock=1818691_15fe_944751
+06/04/20 07:27:51 Terminated job 43789045.0 from 188.184.80.88:4080?addrs=188.184.80.88-4080&noUDP&sock=1818691_15fe_944751 status 0 duration 7947
+06/04/20 07:28:03 Starting job 43789818.0 from 188.184.80.88:4080?addrs=188.184.80.88-4080&noUDP&sock=1818691_15fe_944751
+06/04/20 10:34:31 Terminated job 43789818.0 from 188.184.80.88:4080?addrs=188.184.80.88-4080&noUDP&sock=1818691_15fe_944751 status 0 duration 11188
+06/04/20 10:41:02 Starting job 55731128.0 from 137.138.62.16:4080?addrs=137.138.62.16-4080&noUDP&sock=2737544_25d2_1029355
+06/05/20 07:31:16 Terminated job 55731128.0 from 137.138.62.16:4080?addrs=137.138.62.16-4080&noUDP&sock=2737544_25d2_1029355 signal 15 duration 75014
+06/05/20 08:13:23 Starting job 58305361.0 from 188.184.95.191:4080?addrs=188.184.95.191-4080&noUDP&sock=1980709_6c7a_1182318
+06/05/20 09:27:34 Terminated job 58305361.0 from 188.184.95.191:4080?addrs=188.184.95.191-4080&noUDP&sock=1980709_6c7a_1182318 status 0 duration 4451
+06/04/20 05:15:26 Starting job 43789051.0 from 188.184.80.88:4080?addrs=188.184.80.88-4080&noUDP&sock=1818691_15fe_944754
+06/04/20 08:00:03 Terminated job 43789051.0 from 188.184.80.88:4080?addrs=188.184.80.88-4080&noUDP&sock=1818691_15fe_944754 status 0 duration 9877
+06/04/20 08:04:40 Starting job 55869674.0 from 188.184.30.35:4080?addrs=188.184.30.35-4080&noUDP&sock=2492195_94f9_1121458
+06/04/20 13:07:13 Terminated job 55869674.0 from 188.184.30.35:4080?addrs=188.184.30.35-4080&noUDP&sock=2492195_94f9_1121458 status 0 duration 18153
+06/04/20 13:10:59 Starting job 53896210.0 from 137.138.76.88:4080?addrs=137.138.76.88-4080&noUDP&sock=365751_6ab2_1040163
+06/05/20 02:30:21 Terminated job 53896210.0 from 137.138.76.88:4080?addrs=137.138.76.88-4080&noUDP&sock=365751_6ab2_1040163 status 0 duration 47962
+06/05/20 03:36:12 Starting job 53941366.0 from 137.138.76.88:4080?addrs=137.138.76.88-4080&noUDP&sock=365751_6ab2_1064369
+06/05/20 04:36:21 Terminated job 53941366.0 from 137.138.76.88:4080?addrs=137.138.76.88-4080&noUDP&sock=365751_6ab2_1064369 signal 15 duration 3609
+06/05/20 05:50:33 Starting job 53117415.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_943712
+06/05/20 06:46:54 Terminated job 53117415.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_943712 status 0 duration 3381
+06/05/20 07:02:28 Starting job 56041997.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1217624
+06/05/20 08:27:01 Terminated job 56041997.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1217624 status 0 duration 5073
+06/04/20 05:15:29 Starting job 43789052.0 from 188.184.80.88:4080?addrs=188.184.80.88-4080&noUDP&sock=1818691_15fe_944756
+06/04/20 08:37:44 Terminated job 43789052.0 from 188.184.80.88:4080?addrs=188.184.80.88-4080&noUDP&sock=1818691_15fe_944756 status 0 duration 12135
+06/04/20 08:37:57 Starting job 43789674.0 from 188.184.80.88:4080?addrs=188.184.80.88-4080&noUDP&sock=1818691_15fe_944756
+06/04/20 10:22:07 Terminated job 43789674.0 from 188.184.80.88:4080?addrs=188.184.80.88-4080&noUDP&sock=1818691_15fe_944756 status 0 duration 6250
+06/04/20 10:27:55 Starting job 52372346.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1063746
+06/04/20 15:16:19 Terminated job 52372346.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1063746 status 0 duration 17304
+06/04/20 15:20:18 Starting job 53365013.0 from 137.138.148.117:4080?addrs=137.138.148.117-4080&noUDP&sock=615866_0f8d_920991
+06/04/20 22:20:10 Terminated job 53365013.0 from 137.138.148.117:4080?addrs=137.138.148.117-4080&noUDP&sock=615866_0f8d_920991 status 0 duration 25192
+06/04/20 22:22:22 Starting job 52762908.0 from 188.184.31.249:4080?addrs=188.184.31.249-4080&noUDP&sock=795208_b94a_1204050
+06/04/20 22:25:32 Terminated job 52762908.0 from 188.184.31.249:4080?addrs=188.184.31.249-4080&noUDP&sock=795208_b94a_1204050 status 85 duration 190
+06/04/20 22:29:22 Starting job 52400643.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1076691
+06/05/20 01:36:35 Terminated job 52400643.0 from 188.184.31.114:4080?addrs=188.184.31.114-4080&noUDP&sock=828433_bdf1_1076691 status 0 duration 11233
+06/05/20 03:37:56 Starting job 53941407.0 from 137.138.76.88:4080?addrs=137.138.76.88-4080&noUDP&sock=365751_6ab2_1064431
+06/05/20 04:37:56 Terminated job 53941407.0 from 137.138.76.88:4080?addrs=137.138.76.88-4080&noUDP&sock=365751_6ab2_1064431 signal 15 duration 3600
+06/05/20 05:50:33 Starting job 53117418.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_943719
+06/05/20 06:46:02 Terminated job 53117418.0 from 188.184.28.241:4080?addrs=188.184.28.241-4080&noUDP&sock=2952540_4779_943719 status 0 duration 3329
+06/05/20 07:02:30 Starting job 56042002.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1217629
+06/05/20 08:22:17 Terminated job 56042002.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1217629 status 0 duration 4787
+06/05/20 08:22:27 Starting job 56044547.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1217629
+06/05/20 08:56:42 Terminated job 56044547.0 from 137.138.148.11:4080?addrs=137.138.148.11-4080&noUDP&sock=1147692_96c8_1217629 status 0 duration 2055
+=================
+Total jobs 11 utilization 122785
+Total goodZ jobs 8  (84.7059%) utilization 99831 (81.3057%)
+Total goodNZ jobs 1  (4.70588%) utilization 1738 (1.41558%)
+Total badSignal jobs 2  (10.5882%) utilization 21215 (17.2787%)
+Total badOther jobs 0  (0%) utilization 0 (0%)
+=== End Stats of main ===
+Total number of activations/claims: 20
+
+
+
+
+
+
+
+
+
+
+
+
+
+=== Last script ended Fri Jun  5 11:18:38 PDT 2020 (1591381118) with code 0 after 165386 ===
+
+=== Glidein ending Fri Jun  5 11:18:41 PDT 2020 (1591381121) with code 0 after 165491 ===
+
+=== XML description of glidein activity ===
+<?xml version="1.0"?>
+<OSGTestResult id="glidein_startup.sh" version="4.3.1">
+  <operatingenvironment>
+    <env name="client_name">CMSG-v1_0.overflow-xcache-socal</env>
+    <env name="client_group">overflow-xcache-socal</env>
+    <env name="user">cuser2</env>
+    <env name="arch">x86_64</env>
+    <env name="os">CentOS release 6.10 (Final)</env>
+    <env name="hostname">cabinet-2-2-29.t2.ucsd.edu</env>
+    <env name="cwd">/data1/condor_local/execute/dir_22854</env>
+  </operatingenvironment>
+  <test>
+    <tStart>2020-06-03T13:20:30-07:00</tStart>
+    <tEnd>2020-06-05T11:18:39-07:00</tEnd>
+  </test>
+  <result>
+    <status>OK</status>
+    <metric name="AutoShutdown" ts="2020-06-05T11:18:38-07:00" uri="local">True</metric>
+    <metric name="CondorDuration" ts="2020-06-05T11:18:38-07:00" uri="local">165382</metric>
+    <metric name="TotalJobsNr" ts="2020-06-05T11:18:38-07:00" uri="local">11</metric>
+    <metric name="TotalJobsTime" ts="2020-06-05T11:18:38-07:00" uri="local">122785</metric>
+    <metric name="goodZJobsNr" ts="2020-06-05T11:18:38-07:00" uri="local">8</metric>
+    <metric name="goodZJobsTime" ts="2020-06-05T11:18:38-07:00" uri="local">99831</metric>
+    <metric name="goodNZJobsNr" ts="2020-06-05T11:18:38-07:00" uri="local">1</metric>
+    <metric name="goodNZJobsTime" ts="2020-06-05T11:18:38-07:00" uri="local">1738</metric>
+    <metric name="badSignalJobsNr" ts="2020-06-05T11:18:38-07:00" uri="local">2</metric>
+    <metric name="badSignalJobsTime" ts="2020-06-05T11:18:38-07:00" uri="local">21215</metric>
+    <metric name="badOtherJobsNr" ts="2020-06-05T11:18:38-07:00" uri="local">0</metric>
+    <metric name="badOtherJobsTime" ts="2020-06-05T11:18:38-07:00" uri="local">0</metric>
+    <metric name="CondorKilled" ts="2020-06-05T11:18:38-07:00" uri="local">False</metric>
+  </result>
+</OSGTestResult>
+=== End XML description of glidein activity ===

@@ -1,0 +1,29 @@
+﻿05/31/20 02:18:16 (pid:23216) ******************************************************
+05/31/20 02:18:16 (pid:23216) ** condor_master (CONDOR_MASTER) STARTING UP
+05/31/20 02:18:16 (pid:23216) ** /wntmp/condor/execute/dir_13591/glide_6W0T19/main/condor/sbin/condor_master
+05/31/20 02:18:16 (pid:23216) ** SubsystemInfo: name=MASTER type=MASTER(2) class=DAEMON(1)
+05/31/20 02:18:16 (pid:23216) ** Configuration: subsystem:MASTER local:<NONE> class:DAEMON
+05/31/20 02:18:16 (pid:23216) ** $CondorVersion: 8.8.8 Feb 17 2020 BuildID: 496171 $
+05/31/20 02:18:16 (pid:23216) ** $CondorPlatform: x86_64_RedHat6 $
+05/31/20 02:18:16 (pid:23216) ** PID = 23216
+05/31/20 02:18:16 (pid:23216) ** Log last touched time unavailable (No such file or directory)
+05/31/20 02:18:16 (pid:23216) ******************************************************
+05/31/20 02:18:16 (pid:23216) Using config source: /wntmp/condor/execute/dir_13591/glide_6W0T19/condor_config
+05/31/20 02:18:16 (pid:23216) config Macros = 311, Sorted = 311, StringBytes = 20804, TablesBytes = 11236
+05/31/20 02:18:16 (pid:23216) CLASSAD_CACHING is OFF
+05/31/20 02:18:16 (pid:23216) Daemon Log is logging: D_ALWAYS D_ERROR
+05/31/20 02:18:16 (pid:23216) Daemoncore: Listening at <0.0.0.0:11393> on TCP (ReliSock).
+05/31/20 02:18:16 (pid:23216) DaemonCore: command socket at <10.3.10.206:11393?addrs=10.3.10.206-11393&noUDP>
+05/31/20 02:18:16 (pid:23216) DaemonCore: private command socket at <10.3.10.206:11393?addrs=10.3.10.206-11393>
+05/31/20 02:18:17 (pid:23216) CCBListener: registered with CCB server vocms0806.cern.ch:9618?sock=collector9708 as ccbid 137.138.148.95:9618?addrs=137.138.148.95-9618&alias=vocms0806.cern.ch&noUDP&sock=collector9708#1738464
+05/31/20 02:18:18 (pid:23216) CCBListener: registered with CCB server cmssrv601.fnal.gov:9668 as ccbid 131.225.188.15:9668?addrs=131.225.188.15-9668&alias=cmssrv601.fnal.gov#1103692
+05/31/20 02:18:18 (pid:23216) Master restart (GRACEFUL) is watching /wntmp/condor/execute/dir_13591/glide_6W0T19/main/condor/sbin/condor_master (mtime:1590916574)
+05/31/20 02:18:18 (pid:23216) Started DaemonCore process "/wntmp/condor/execute/dir_13591/glide_6W0T19/main/condor/sbin/condor_startd", pid and pgroup = 23220
+05/31/20 02:18:25 (pid:23216) Setting ready state 'Ready' for STARTD
+06/03/20 22:18:23 (pid:23216) DefaultReaper unexpectedly called on pid 23220, status 25344.
+06/03/20 22:18:23 (pid:23216) The STARTD (pid 23220) exited with status 99 (daemon will not restart automatically)
+06/03/20 22:19:14 (pid:23216) The DaemonShutdown expression "(STARTD_StartTime =?= 0)" evaluated to TRUE: starting graceful shutdown
+06/03/20 22:19:14 (pid:23216) Got SIGTERM. Performing graceful shutdown.
+06/03/20 22:19:14 (pid:23216) About to tell the ProcD to exit
+06/03/20 22:19:14 (pid:23216) All daemons are gone.  Exiting.
+06/03/20 22:19:14 (pid:23216) **** condor_master (condor_MASTER) pid 23216 EXITING WITH STATUS 99
