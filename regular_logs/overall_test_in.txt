@@ -1,5 +1,12 @@
 This is a .out file from job 2771260
 
+x509userproxysubject = "/DC=org/DC=cilogon/C=US/O=LIGO/CN=Katerina Chatziioannou katerina.chatziioannou@ligo.org"
+
+GSI "^\/DC\=ch\/DC\=cern\/OU\=computers\/CN\=vocms0815\.cern\.ch$" collector1
+GSI "^\/DC\=org\/DC\=incommon\/C\=US\/ST\=Illinois\/L\=Batavia\/O\=Fermi\ Research\ Alliance\/OU\=Fermilab\/CN\=cmssrv623\.fnal\.gov$" collector2
+GSI "^\/DC\=ch\/DC\=cern\/OU\=computers\/CN\=vocms0806\.cern\.ch$" collector3
+
+
 06/06/20 18:07:33 Starting job 19043968.0 from 131.215.113.204:9618?addrs=131.215.113.204-
 9618&noUDP&sock=2771260_1ead_30831
 06/06/20 18:20:40 Terminated job 19043968.0 from 131.215.113.204:9618?addrs=131.215.113.204-

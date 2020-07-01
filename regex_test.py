@@ -1,42 +1,3 @@
-#Improvements - delete original file so there is no chance or reversal
-#Weakness - ex. 444.76.9.23 - leaves off beginning 4 as it's not accepted and decides that the Ip is 44.76.9.23 meaning it can mistake othe number sequences for IP
-#Weakness - Does not account for if an IP of type 4 is on the same line as an IP of type 6
-#Testing Succesfull against short glidein outfile
-
-"""Regex Breakdown of Ipv4 + Ipv6 + CN User
-    
-    Regex Breakdown for Ipv4
-    (?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)
-    
-    #Checks if numbers are between 0 and 225 (25[0-5]) or any other 200 val (2[0-4][0-9]) or any over 100 val or less ([01]?[0-9][0-9])
-    Checks for three words following a period and then once without
-
-    (?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}
-    Source: https://riptutorial.com/regex/example/14146/match-an-ip-address
-    
-    
-    Regex Breakdown for Ipv6
-    (?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|^::(?:[0-9a-fA-F]{1,4}:){0,6}[0-9a-fA-F]{1,4}$|^[0-9a-fA-F]{1,4}::(?:[0-9a-fA-F]{1,4}:){0,5}[0-9a-fA-F]{1,4}$|^[0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4}::(?:[0-9a-fA-F]{1,4}:){0,4}[0-9a-fA-F]{1,4}$|^(?:[0-9a-fA-F]{1,4}:){0,2}[0-9a-fA-F]{1,4}::(?:[0-9a-fA-F]{1,4}:){0,3}[0-9a-fA-F]{1,4}$|^(?:[0-9a-fA-F]{1,4}:){0,3}[0-9a-fA-F]{1,4}::(?:[0-9a-fA-F]{1,4}:){0,2}[0-9a-fA-F]{1,4}$|^(?:[0-9a-fA-F]{1,4}:){0,4}[0-9a-fA-F]{1,4}::(?:[0-9a-fA-F]{1,4}:)?[0-9a-fA-F]{1,4}$|^(?:[0-9a-fA-F]{1,4}:){0,5}[0-9a-fA-F]{1,4}::[0-9a-fA-F]{1,4}$|(?:[0-9a-fA-F]{1,4}:){0,6}[0-9a-fA-F]{1,4}::
-   
-    #Check for seven words (w/ four places each with a variety of nums + letters) following a colon (?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|^::(?:[0-9a-fA-F]{1,4}:
-    #Zeros are replaced with ::
-    #Checks many different forms of Ipv6
-    Source: https://riptutorial.com/regex/example/14146/match-an-ip-address
-    
-    Regex Breakdown for CN User Info
-    CN.*(")
-    
-    #Check if line contains CN
-    #After that, anything can come after CN but it must end with a "
-    
-"""
-"""To Do
-1. Try Catch Loop with file to see if it exists
-2. Fix Weaknesses 
-3. Delete Original File
-4. Add MAC to our IP_Address lists + function
-"""
-
 import re
 import mmap
 import argparse
@@ -96,7 +57,7 @@ def findGlideinUserIDs(filename): #Greedy CN Replacer
     cns = (" ".join(cns)).split(" ")    
     return cns
   
-def cleanCondor(filename,email,userinfo, USER): #removes email 6 user data (name, email) from a file
+def cleanCondor(filename,email,userinfo): #removes email 6 user data (name, email) from a file
     f = open(filename,'r')
     filedata = f.read()
     f.close()
@@ -105,7 +66,7 @@ def cleanCondor(filename,email,userinfo, USER): #removes email 6 user data (name
         newdata = newdata.replace(userinfo[x], USER)
     return newdata
 
-def cleanGlidein(filename, recog, replacement):
+def cleanGlidein(filename, recog):
     f = open(filename,'r')
     filedata = f.read()
     f.close()
@@ -116,30 +77,35 @@ def cleanGlidein(filename, recog, replacement):
     return newdata
     
 
-###########################################################################################################
-#Problematic if interupted half way through because of the line for line read
 def replaceIP(filename):
     f_in = open(filename,"r")
-    f_out = open("ip_out.txt", "w")
+    newdata = ""
+    #f_out = open("ip_out.txt", "w")
     outlines = f_in.readlines()
     #multi line tag helps it catch ip addresses spanning multi lines
     #[scans file one line at a time, finds all instances of line match, substitutes and writes new file, otherwise no match just writes line]
     for line in outlines:
-        if re.search("(\^?\\?\/DC[\\=]=?\w{0,10}){2}([\s/.\d\w\\/=/@/$]+)", line, flags=re.MULTILINE):
+        if re.search(IP_REGEX[0], line, flags=re.MULTILINE) or re.search(IP_REGEX[1], line, flags=re.MULTILINE):
             #super specific list indexes for now
             if re.findall(IP_REGEX[0], line, flags=re.MULTILINE):
-                new_line = re.sub(IP_REGEX[0], IPV4, line, flags=re.MULTILINE)
-                f_out.write(new_line)
+                newdata = newdata + re.sub(IP_REGEX[0], IPV4, line, flags=re.MULTILINE)
             elif re.findall(IP_REGEX[1], line, flags=re.MULTILINE):
-                new_line = re.sub(IP_REGEX[1], IPV6, line, flags=re.MULTILINE)
-                newdata = newdata + new_line
-                f_out.write(new_line)  
+                newdata = newdata + re.sub(IP_REGEX[1], IPV6, line, flags=re.MULTILINE)
             else:
-                f_out.write(line)  
+                newdata = newdata + line
         else:
-            f_out.write(line)  
+            newdata = newdata + line
     f_in.close()
-##########################################################################################################
+    return newdata
+
+def overwrite(filename, data):
+    f_out = open(filename, "w")
+    f_out.seek(0)
+    f_out.write(data)
+    f_out.truncate()
+    f_out.close()    
+
+
 
 
 def cleanLogs():
@@ -185,19 +151,19 @@ def cleanLogs():
 if __name__ == "__main__":
     
     #cleanLogs()
-    
+
     #Condor Logs
     file2 = "condor_logs/job.1.StartdLog.txt"
     user_ids2 = findCondorUserIDs(file2)
-    print("Condor Log", user_ids2)
-    
+    email = findEmail(file2)
+    #print("Condor Log", user_ids2)
+    cleanCondor(file2,email,user_ids2)
     
     #Glidein Logs
-    file1 = "regular_logs/test_ip.txt"
+    file1 = "regular_logs/overall_test_in.txt"
     user_ids = findGlideinUserIDs(file1)
-    print("Glidein Log" ,user_ids)
-    data = cleanGlidein(file1, user_ids, USER)
-    f_out = open("regular_logs/overall_test_out.txt", "w")
-    f_out.write(data)
-    f_out.close()
-    replaceIP("regular_logs/overall_test_out.txt")
+    data = cleanGlidein(file1, user_ids)
+    overwrite(file1, data)
+    clean_data = replaceIP(file1)
+    overwrite(file1, clean_data)
+    
