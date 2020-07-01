@@ -57,7 +57,7 @@ def findGlideinUserIDs(filename): #Greedy CN Replacer
     cns = (" ".join(cns)).split(" ")    
     return cns
   
-def cleanCondor(filename,email,userinfo): #removes email 6 user data (name, email) from a file
+def cleanCondorInfo(filename,email,userinfo): #removes email 6 user data (name, email) from a file
     f = open(filename,'r')
     filedata = f.read()
     f.close()
@@ -66,7 +66,7 @@ def cleanCondor(filename,email,userinfo): #removes email 6 user data (name, emai
         newdata = newdata.replace(userinfo[x], USER)
     return newdata
 
-def cleanGlidein(filename, recog):
+def cleanGlideinUser(filename, recog):
     f = open(filename,'r')
     filedata = f.read()
     f.close()
@@ -74,19 +74,16 @@ def cleanGlidein(filename, recog):
     for x in range(1, len(recog)):
         newdata = newdata.replace(recog[x], USER)
         newdata = newdata.replace(recog[x], USER)
+        
     return newdata
     
 
 def replaceIP(filename):
-    f_in = open(filename,"r")
     newdata = ""
-    #f_out = open("ip_out.txt", "w")
+    f_in = open(filename,"r")
     outlines = f_in.readlines()
-    #multi line tag helps it catch ip addresses spanning multi lines
-    #[scans file one line at a time, finds all instances of line match, substitutes and writes new file, otherwise no match just writes line]
-    for line in outlines:
+    for line in outlines: #super specific list indexes for now
         if re.search(IP_REGEX[0], line, flags=re.MULTILINE) or re.search(IP_REGEX[1], line, flags=re.MULTILINE):
-            #super specific list indexes for now
             if re.findall(IP_REGEX[0], line, flags=re.MULTILINE):
                 newdata = newdata + re.sub(IP_REGEX[0], IPV4, line, flags=re.MULTILINE)
             elif re.findall(IP_REGEX[1], line, flags=re.MULTILINE):
@@ -106,64 +103,62 @@ def overwrite(filename, data):
     f_out.close()    
 
 
-
-
 def cleanLogs():
     # Parse command line arguments
     parser = argparse.ArgumentParser(description="GlideinMonitor's Filtering")
     parser.add_argument('-i', help="Input Directory", required=True)
     parser.add_argument('-o', help="Output Directory", required=True)
     args = parser.parse_args()
-
     input_directory = args.i
     output_directory = args.o
 
-#####################################################################################################################
     # In practice, use a loop until no files have been found in the input directory for better performance
-    input_directory_files = [file
-                            for file in os.listdir(input_directory)
-                            if os.path.isfile(os.path.join(input_directory, file))]
-######################################################################################################################
+    input_directory_files = [file for file in os.listdir(input_directory) if os.path.isfile(os.path.join(input_directory, file))]
 
-    # Iterate through each file in the input directory
-    for file_name in input_directory_files:
-        # Read in the file from the input directory
-        with open(os.path.join(input_directory, file_name), 'r') as input_file_handle:
+    for file_name in input_directory_files:     # Iterate through each file in the input directory
+        with open(os.path.join(input_directory, file_name), 'r') as input_file_handle:         # Read in the file from the input directory
             input_file_contents = input_file_handle.read()
 
-        # Replace the target stand in for actual code finding out if condor
-        if os.path.splitext(file_name)[1] == '.out' or os.path.splitext(file_name)[1] == '.err' :
+        if os.path.splitext(file_name)[1] == '.out' or os.path.splitext(file_name)[1] == '.err' : #may need overwrite method here
             ids = findGlideinUserIDs(input_file_handle)
-            output_file_contents = cleanGlidein(input_file_handle, ids)
-            output_file_contents = replaceIP(input_file_handle) #won't work for now
-        else:
+            output_file_contents = cleanGlideinUser(input_file_handle, ids)
+            output_file_contents = replaceIP(input_file_handle)
+        else: #may need overwrite method here
             ids = findCondorUserIDs(input_file_handle)
             email = findEmail(input_file_handle)
-            output_file_contents = cleanCondor(input_file_handle, email, ids)
+            output_file_contents = cleanCondorInfo(input_file_handle, email, ids)
 
         # Write the file to the output directory
         with open(os.path.join(output_directory, file_name), 'w') as file:
             file.write(output_file_contents)
 
-        # Delete the file from the input directory
-        os.remove(os.path.join(input_directory, file_name))
+        os.remove(os.path.join(input_directory, file_name))  # Delete the file from the input directory
+        
+
+def cleanGlidein(file1):
+    #Glidein Logs
+    user_ids = findGlideinUserIDs(file1)
+    data = cleanGlideinUser(file1, user_ids)
+    overwrite(file1, data)
+    clean_data = replaceIP(file1)
+    overwrite(file1, clean_data)
+      
+def cleanCondor(file2):
+    user_ids2 = findCondorUserIDs(file2)
+    email = findEmail(file2)
+    co_data = cleanCondorInfo(file2,email,user_ids2)
+    overwrite(file2, co_data)
     
 if __name__ == "__main__":
     
     #cleanLogs()
 
     #Condor Logs
-    file2 = "condor_logs/job.1.StartdLog.txt"
+    """ file2 = "condor_logs/job.1.StartdLog.txt"
     user_ids2 = findCondorUserIDs(file2)
     email = findEmail(file2)
-    #print("Condor Log", user_ids2)
-    cleanCondor(file2,email,user_ids2)
+    co_data = cleanCondorInfo(file2,email,user_ids2)
+    overwrite(file2, co_data) """
     
-    #Glidein Logs
-    file1 = "regular_logs/overall_test_in.txt"
-    user_ids = findGlideinUserIDs(file1)
-    data = cleanGlidein(file1, user_ids)
-    overwrite(file1, data)
-    clean_data = replaceIP(file1)
-    overwrite(file1, clean_data)
+    #cleanGlidein("regular_logs/overall_test_in.txt")
     
