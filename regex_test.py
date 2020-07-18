@@ -51,11 +51,25 @@ def findEmail(filename): #CONDOR SPECIFIC finds and returns user email (before @
     return lis
             
 def cleanCondorUser(filename,email,userinfo): #removes email & user data (name, email) from a file
+   newdata = ""
    with open(filename,'r', encoding="utf8") as f:
         filedata = f.read()
-        newdata = filedata.replace(email, USER)
-        for x in range(0, len(userinfo)):
-            newdata = newdata.replace(userinfo[x], USER)
+        if email and userinfo:  #both
+            newdata = filedata.replace(email, USER)
+            for x in range(0, len(userinfo)):
+                newdata = newdata.replace(userinfo[x], USER)
+    
+        elif email and not userinfo: #not userids
+            newdata = filedata.replace(email, USER)
+            
+        elif userinfo and not email: #not email
+            newdata = filedata.replace(userinfo[0], USER)
+            for x in range(1, len(userinfo)):
+                newdata = newdata.replace(userinfo[x], USER)
+
+        elif not email and not userinfo: #not either
+            newdata = ""
+            
         return newdata
 
 def cleanGlideinUser(filename, recog): #removes all instance of user
@@ -93,7 +107,8 @@ def cleanCondor(file2):
     user_ids2 = findCondorUserIDs(file2)
     email = findEmail(file2)
     co_data = cleanCondorUser(file2,email,user_ids2)
-    overwrite(file2, co_data)
+    if co_data != "":
+        overwrite(file2, co_data)
     clean_data = replaceIP(file2)
     overwrite(file2, clean_data)
 
@@ -121,50 +136,75 @@ def cleanLogs():
     #         )
     #     ]
     
-    input_directory_files = []
+    #input_directory_files = []
     input_directory = "input_dir"
     output_directory = "output_dir"
     
-    while True:
-        for file in os.listdir(input_directory):
-            if os.path.isfile(os.path.join(input_directory, file)):
-                input_directory_files.append(file)
-            else:
-                False
+    # while True:
+    #     for file in os.listdir(input_directory):
+    #         if os.path.isfile(os.path.join(input_directory, file)):
+    #             input_directory_files.append(file)
+    #         else:
+    #             False
+    
+    input_directory_files = [
+        file 
+        for file in os.listdir(input_directory) 
+      
+        if os.path.isfile(
+            os.path.join(input_directory, file)
+            )
+        ]
 
     for file_name in input_directory_files:  
         #with open(os.path.join(input_directory, file_name), 'r') as input_file_handle:
             #input_file_contents = input_file_handle.read()
+        path = os.path.join(input_directory, file_name)
+        #print(path)
+        #f_in = open(path, "r")
         if os.path.splitext(file_name)[1] == '.out' or os.path.splitext(file_name)[1] == '.err' : 
-            cleanGlidein(file_name)
-        elif condorFile(file_name) == True: 
-            cleanCondor(file_name)
-
-        with open(os.path.join(output_directory, file_name), 'w') as file:
-            output_file_contents = file_name.read()
+            print("Cleaning Glidein!")
+            #cleanGlidein(path)
+        # elif condorFile(file_name) == True: 
+        else:
+            print("Cleaning Condor!")
+            cleanCondor(path)
+            
+        out_path = os.path.join(output_directory, file_name)
+        
+        
+        
+        
+        f_in = open(path, "r")
+        with open(out_path, 'w') as file:
+            output_file_contents = f_in.read()
+            f_in.close()
             file.write(output_file_contents)
+            print("Wrote to outfile!")
 
-        os.remove(os.path.join(input_directory, file_name)) 
+        # os.remove(os.path.join(input_directory, file_name)) 
+        # print("Removed Old File!")
 
 if __name__ == "__main__":
-    cleanGlidein("regular_logs/overall_test_in.txt")
-    logger = logging.getLogger(__name__)
-    # Create handlers
-    c_handler = logging.StreamHandler()
-    f_handler = logging.FileHandler('file.log')
-    c_handler.setLevel(logging.WARNING)
-    f_handler.setLevel(logging.ERROR)
+    cleanLogs()
+    # cleanGlidein("regular_logs/overall_test_in.txt")
+    # logger = logging.getLogger(__name__)
+    # # Create handlers
+    # c_handler = logging.StreamHandler()
+    # f_handler = logging.FileHandler('file.log')
+    # c_handler.setLevel(logging.WARNING)
+    # f_handler.setLevel(logging.ERROR)
 
-    # Create formatters and add it to handlers
-    c_format = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
-    f_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    c_handler.setFormatter(c_format)
-    f_handler.setFormatter(f_format)
+    # # Create formatters and add it to handlers
+    # c_format = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
+    # f_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    # c_handler.setFormatter(c_format)
+    # f_handler.setFormatter(f_format)
 
-    # Add handlers to the logger
-    logger.addHandler(c_handler)
-    logger.addHandler(f_handler)
-    logging.info(cleanGlidein("regular_logs/overall_test_in.txt"))
+    # # Add handlers to the logger
+    # logger.addHandler(c_handler)
+    # logger.addHandler(f_handler)
+    # logging.info(cleanGlidein("regular_logs/overall_test_in.txt"))
     
     #-h option to print option of how to work this page
     #documentation
