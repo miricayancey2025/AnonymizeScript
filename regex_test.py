@@ -28,6 +28,23 @@ def findUserIds(filename): #CONDOR SPECIFIC finds and returns user email (before
             lis = " ".join(lis).replace("/","").replace(",cms","").split(' ')
     return lis  
       
+def findUserIP(filename): #CONDOR SPECIFIC finds and returns user email (before @symbol)
+    lis = ''
+    with open(filename, 'rb', 0) as file, \
+        mmap.mmap(file.fileno(), 0, access=mmap.ACCESS_READ) as s:
+        if s.find(b'MyAddress = "') != -1:
+            x = s.find(b'MyAddress = "')
+            end = s.find(b'?',x)
+            lis = s[x: end].decode("utf-8")
+            print(lis)
+            lis = lis.split(':')
+            lis.pop()
+            lis = ":".join(lis)
+            lis = lis.split('<')
+            lis.pop(0)
+    return lis  
+
+
 def cleanCondorUser(filename,email,userinfo): #removes email & user data (name, email) from a file
    newdata = ""
    with open(filename,'r', encoding="utf8") as f:
@@ -58,6 +75,12 @@ def replaceIP(filename):
         return newdata
 
 def overwrite(filename, data):
+    """Overwrites file with new data
+
+    Args:
+        filename (str): path of the file
+        data (str): new file data
+    """
     with open(filename,'w', encoding="utf8") as f_out:
         f_out.seek(0)
         f_out.write(data)
@@ -76,7 +99,7 @@ def cleanCondor(file2):
     clean_data = replaceIP(file2)
     overwrite(file2, clean_data)
 
-def condorFile(file_name):
+def condorFile(file_name): #finds if the file condor file
     for i in range(0, len(CONDORS)):
         if CONDORS[i] in file_name:
             return True
@@ -118,4 +141,6 @@ def cleanLogs():
         print("Removed Old File!")
 
 if __name__ == "__main__":
+    # ip = findUserIP('condor_logs/job.1.StartdLog.txt')
+    # print(ip)
     cleanLogs()
