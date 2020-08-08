@@ -5,7 +5,15 @@ USER = "USER"
 CONDORS = ["MasterLog", "StartdLog", "StarterLog", "StartdHistory"]
 IP_REGEX = ["(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)", "(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|^::(?:[0-9a-fA-F]{1,4}:){0,6}[0-9a-fA-F]{1,4}$|^[0-9a-fA-F]{1,4}::(?:[0-9a-fA-F]{1,4}:){0,5}[0-9a-fA-F]{1,4}$|^[0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4}::(?:[0-9a-fA-F]{1,4}:){0,4}[0-9a-fA-F]{1,4}$|^(?:[0-9a-fA-F]{1,4}:){0,2}[0-9a-fA-F]{1,4}::(?:[0-9a-fA-F]{1,4}:){0,3}[0-9a-fA-F]{1,4}$|^(?:[0-9a-fA-F]{1,4}:){0,3}[0-9a-fA-F]{1,4}::(?:[0-9a-fA-F]{1,4}:){0,2}[0-9a-fA-F]{1,4}$|^(?:[0-9a-fA-F]{1,4}:){0,4}[0-9a-fA-F]{1,4}::(?:[0-9a-fA-F]{1,4}:)?[0-9a-fA-F]{1,4}$|^(?:[0-9a-fA-F]{1,4}:){0,5}[0-9a-fA-F]{1,4}::[0-9a-fA-F]{1,4}$|(?:[0-9a-fA-F]{1,4}:){0,6}[0-9a-fA-F]{1,4}::"]
 
-def findEmail(filename): #CONDOR SPECIFIC finds and returns user email (before @symbol)
+def findEmail(filename):
+    """finds the user's email in a condor file type
+
+    Args:
+        filename (str): path of the file
+
+    Returns:
+        str: user's email
+    """
     lis = ''
     with open(filename, 'rb', 0) as file, \
         mmap.mmap(file.fileno(), 0, access=mmap.ACCESS_READ) as s:
@@ -15,7 +23,15 @@ def findEmail(filename): #CONDOR SPECIFIC finds and returns user email (before @
             lis = (((s[x: end].split(b'='))[1].decode("utf-8")).replace('"', '')).replace(' ', '')   
     return lis
   
-def findUserIds(filename): #CONDOR SPECIFIC finds and returns user email (before @symbol)
+def findUserIds(filename):
+    """finds the user's identifiers in a condor file type
+
+    Args:
+        filename (str): path of the file
+
+    Returns:
+        array: list of user identifiers
+    """
     lis = ''
     with open(filename, 'rb', 0) as file, \
         mmap.mmap(file.fileno(), 0, access=mmap.ACCESS_READ) as s:
@@ -28,7 +44,15 @@ def findUserIds(filename): #CONDOR SPECIFIC finds and returns user email (before
             lis = " ".join(lis).replace("/","").replace(",cms","").split(' ')
     return lis  
       
-def findUserIP(filename): #CONDOR SPECIFIC finds and returns user email (before @symbol)
+def findCondorIP(filename):
+    """finds the user's ip address in a condor type file
+
+    Args:
+        filename (str): path of the file
+
+    Returns:
+        str: user's ip address
+    """
     lis = ''
     with open(filename, 'rb', 0) as file, \
         mmap.mmap(file.fileno(), 0, access=mmap.ACCESS_READ) as s:
@@ -36,7 +60,6 @@ def findUserIP(filename): #CONDOR SPECIFIC finds and returns user email (before 
             x = s.find(b'MyAddress = "')
             end = s.find(b'?',x)
             lis = s[x: end].decode("utf-8")
-            print(lis)
             lis = lis.split(':')
             lis.pop()
             lis = ":".join(lis)
@@ -44,29 +67,35 @@ def findUserIP(filename): #CONDOR SPECIFIC finds and returns user email (before 
             lis.pop(0)
     return lis  
 
+def cleanCondor(filename,email,userinfo, ipaddress):
+    """Filters information from condor file type
 
-def cleanCondorUser(filename,email,userinfo): #removes email & user data (name, email) from a file
-   newdata = ""
-   with open(filename,'r', encoding="utf8") as f:
+    Args:
+        filename (str): path of file
+        email (str): user's email
+        userinfo (array): array of user identifiers
+        ipaddress (array): array of user ip addresses
+    """
+    newdata = ""
+    with open(filename,'r', encoding="utf8") as f:
         filedata = f.read()
-        if email and userinfo:  #both
+        if ipaddress and email and userinfo:
             newdata = filedata.replace(email, USER)
+            newdata= newdata.replace(ipaddress[0], IPV4)
             for x in range(0, len(userinfo)):
                 newdata = newdata.replace(userinfo[x], USER)
-    
-        elif email and not userinfo: #not userids
-            newdata = filedata.replace(email, USER)
-            
-        elif userinfo and not email: #not email
-            newdata = filedata.replace(userinfo[0], USER)
-            for x in range(1, len(userinfo)):
-                newdata = newdata.replace(userinfo[x], USER)
+            overwrite(filename, newdata)
+        
 
-        elif not email and not userinfo: #not either
-            newdata = ""  
-        return newdata
+def replaceAllIP(filename):
+    """replaces the ip addresses in a file
 
-def replaceIP(filename):
+    Args:
+        filename (str): path of the file
+
+    Returns:
+        str: new filtered file data
+    """
     newdata = ""
     with open(filename,"r", encoding="utf8") as f_in:
         outlines = f_in.read()
@@ -85,50 +114,48 @@ def overwrite(filename, data):
         f_out.seek(0)
         f_out.write(data)
         f_out.truncate()
+    
+def condorFile(filename):
+    """Determines if file type is a condor file
 
-def cleanGlidein(file1):
-    clean_data = replaceIP(file1)
-    overwrite(file1, clean_data)
-      
-def cleanCondor(file2):
-    user_ids2 = findUserIds(file2)
-    email = findEmail(file2)
-    co_data = cleanCondorUser(file2,email,user_ids2)
-    if co_data != "":
-        overwrite(file2, co_data)
-    clean_data = replaceIP(file2)
-    overwrite(file2, clean_data)
+    Args:
+        filename (str): path of the file
 
-def condorFile(file_name): #finds if the file condor file
+    Returns:
+        boolean: if file is condor or not
+    """
     for i in range(0, len(CONDORS)):
-        if CONDORS[i] in file_name:
+        if CONDORS[i] in filename:
             return True
     return False
         
 def cleanLogs():
-    # parser = argparse.ArgumentParser(description="GlideinMonitor's Filtering")     # Parse command line arguments
-    # parser.add_argument('-i', help="Input Directory", required=True)
-    # parser.add_argument('-o', help="Output Directory", required=True)
-    # args = parser.parse_args()
-    # input_directory = args.i
-    # output_directory = args.o
+    """Filters GlideinMonitor files of type Condor and Glidein and saves them to an output directory
+    """
+    parser = argparse.ArgumentParser(description="GlideinMonitor's Filtering")     # Parse command line arguments
+    parser.add_argument('-i', help="Input Directory", required=True)
+    parser.add_argument('-o', help="Output Directory", required=True)
+    args = parser.parse_args()
+    input_directory = args.i
+    output_directory = args.o
+    # input_directory = "input_dir"
+    # output_directory = "output_dir"
+    
+    input_directory_files = [file for file in os.listdir(input_directory)
+                         if os.path.isfile(os.path.join(input_directory, file))]
 
-    input_directory = "input_dir"
-    output_directory = "output_dir"
-
-    # In practice, use a loop until no files have been found in the input directory for better performance
-    input_directory_files = [file for file in os.listdir(input_directory) if os.path.isfile(os.path.join(input_directory, file))]
-
-    for file_name in input_directory_files:  
-        path = os.path.join(input_directory, file_name)
-        if os.path.splitext(file_name)[1] == '.out' or os.path.splitext(file_name)[1] == '.err' : 
+    for filename in input_directory_files:  
+        path = os.path.join(input_directory, filename)
+        if os.path.splitext(filename)[1] == '.out' or os.path.splitext(filename)[1] == '.err' : 
             print("Cleaning Glidein!")
-            cleanGlidein(path)
-        elif condorFile(file_name) == True: 
+            clean_data = replaceAllIP(filename)
+            overwrite(filename, clean_data)
+            
+        elif condorFile(filename) == True: 
             print("Cleaning Condor!")
             cleanCondor(path)
             
-        out_path = os.path.join(output_directory, file_name)
+        out_path = os.path.join(output_directory, filename)
         
         f_in = open(path, "r")
         with open(out_path, 'w') as file:
@@ -137,10 +164,8 @@ def cleanLogs():
             file.write(output_file_contents)
             print("Wrote to outfile!")
 
-        os.remove(os.path.join(input_directory, file_name)) 
+        os.remove(os.path.join(input_directory, filename)) 
         print("Removed Old File!")
 
 if __name__ == "__main__":
-    # ip = findUserIP('condor_logs/job.1.StartdLog.txt')
-    # print(ip)
     cleanLogs()
